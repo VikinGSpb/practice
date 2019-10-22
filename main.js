@@ -22,6 +22,23 @@ function bubbleSort(array) {
         }
 }
 
+function selectionSort(array) {
+    let arr = array;
+    for(let i = 0; i < arr.length - 1; i++)
+    {
+        let min = i;
+        for(let j = i + 1; j < arr.length; j++)
+        {
+            if(arr[j] < arr[min]){
+                min = j;
+            }
+        }
+        let k = arr[i];
+        arr[i] = arr[min];
+        arr[min] = k;
+    }
+}
+
 button.addEventListener('click', () => {
     let quantity = document.querySelector('#quantity').value;
     if(quantity < 3) alert('wrong number! try again.');
@@ -32,8 +49,11 @@ button.addEventListener('click', () => {
         for(let i = 0; i < arr.length; i++) {
             output.insertAdjacentHTML('beforeend', ' ' + arr[i] + '<br>');
         }
-        bubbleSort(arr);
-        output.innerHTML += 'After Sort<br>';
+        let startTime = performance.now();//new Date().getTime();
+        //bubbleSort(arr);
+        selectionSort(arr);
+        let time = performance.now() - startTime;//new Date().getTime() - startTime;
+        output.innerHTML += 'Time = ' + time + '<br>After Sort<br>';
         for(let i = 0; i < arr.length; i++) {
             output.insertAdjacentHTML('beforeend', ' ' + arr[i] + '<br>');
         }
