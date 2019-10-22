@@ -39,6 +39,19 @@ function selectionSort(array) {
     }
 }
 
+function insertionSort(array) {
+    let arr = array;
+    for(let i = 1; i < arr.length; i++)
+    {
+        for(let j = i; (j > 0) && (arr[j - 1] > arr[j]); j--)
+        {
+            let k = arr[j - 1];
+            arr[j - 1] = arr[j];
+            arr[j] = k;
+        }
+    }
+}
+
 button.addEventListener('click', () => {
     let quantity = document.querySelector('#quantity').value;
     if(quantity < 3) alert('wrong number! try again.');
@@ -51,7 +64,8 @@ button.addEventListener('click', () => {
         }
         let startTime = performance.now();//new Date().getTime();
         //bubbleSort(arr);
-        selectionSort(arr);
+        //selectionSort(arr);
+        insertionSort(arr);
         let time = performance.now() - startTime;//new Date().getTime() - startTime;
         output.innerHTML += 'Time = ' + time + '<br>After Sort<br>';
         for(let i = 0; i < arr.length; i++) {
