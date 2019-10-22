@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+
+  color: white;
+
+  background: black;
+}
+
+.array-form-bubble {
+  display: flex;
+  flex-wrap: wrap;
+  width: 30%;
+  margin: 0 auto;
+
+  background: red;
+}
+
+.button {
+  border: 1px solid white;
+  margin-left: 5px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
